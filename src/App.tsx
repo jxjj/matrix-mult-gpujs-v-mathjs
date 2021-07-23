@@ -1,10 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
+import Worker from "web-worker";
 import { useDispatch, useSelector } from "react-redux";
-import runAllTests from "./runAllTests";
-import { RootState, TestResults } from "./store";
+import dataSet from "./data/data.js";
+import {
+  RootState,
+  START_ALL_TESTS,
+  TestResults,
+  TEST_COMPLETE,
+} from "./store";
+
+function handleTestLaunch({ dispatch }) {
+  const worker = new Worker("./worker.js", { type: "module" });
+
+  worker.postMessage({
+    type: START_ALL_TESTS,
+    payload: dataSet,
+  });
+
+  worker.onmessage = (e) => {
+    const { payload } = e.data;
+    dispatch({ type: TEST_COMPLETE, payload });
+  };
+}
 
 const TableRow = ({ size, mathjsTime, gpujsTime }: TestResults) => {
-  console.log("rerendering table row");
   return (
     <tr>
       <td>{size}</td>
@@ -16,14 +35,15 @@ const TableRow = ({ size, mathjsTime, gpujsTime }: TestResults) => {
 
 const App = () => {
   const testResults = useSelector(({ testResults }: RootState) => testResults);
-  console.log({ testResults });
   const dispatch = useDispatch();
 
   return (
     <main>
-      <h1>GPU.js vs Mathjs Tests</h1>
-      <button onClick={() => runAllTests({ dispatch })}>Run Tests</button>
-      {JSON.stringify(testResults)}
+      {/* <h1>GPU.js vs Mathjs Tests</h1>
+      <button onClick={() => runAllTests({ dispatch })}>Run Tests</button> */}
+      <button onClick={() => handleTestLaunch({ dispatch })}>
+        Launch Test Worker
+      </button>
       <table>
         <thead>
           <tr>

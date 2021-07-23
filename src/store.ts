@@ -1,5 +1,7 @@
-import { Action, createStore } from "redux";
+import { createStore } from "redux";
 
+// ACTIONS
+export const START_ALL_TESTS = "START_ALL_TESTS";
 export const TEST_COMPLETE = "TEST_COMPLETE";
 export const CLEAR_ALL_TEST_RESULTS = "TEST_CLEAR";
 
