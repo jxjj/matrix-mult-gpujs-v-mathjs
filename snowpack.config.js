@@ -17,8 +17,9 @@ export default {
   },
   buildOptions: {
     // github doesn't seem to like `_snowpack` dir
-    // see: https://github.com/snowpackjs/snowpack/discussions/2419
-    metaUrlPath: "snowpack",
-    baseUrl: "/matrix-mult-gpujs-v-mathjs",
+    // need to include a `.nojekyll` file in build
+    // if deploying with gh-pages don't forget the
+    // `--dotfiles` option to make sure `.nojekyll`
+    // is included in the deploy
   },
 };
