@@ -1,6 +1,6 @@
-import { Point } from "../types";
-import getTestResultsFor from "./getTestResultsFor";
-import * as actions from "../actions";
+import { Point } from "./types";
+import getTestResultsFor from "./testWorker/getTestResultsFor";
+import * as actions from "./actions";
 
 async function runAllTests(dataSet: Point[]) {
   for (let n = 50; n <= dataSet.length; n += 50) {

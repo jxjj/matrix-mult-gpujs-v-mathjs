@@ -5,6 +5,9 @@ import store from "./store";
 import { RootState, TestResults } from "./types";
 import handleTestWorkerLaunch from "./testWorker/handleTestWorkerLaunch";
 
+const workerURL = new URL(`./worker.js`, import.meta.url);
+const worker = new Worker(workerURL, { type: "module" });
+
 const TableRow = ({ size, mathjsTime, gpujsTime }: TestResults) => {
   return (
     <tr>
@@ -27,7 +30,7 @@ const App = () => {
         <a href="https://mathjs.org/docs/index.html">Math.js</a> and{" "}
         <a href="https://gpu.rocks/">GPU.js</a>
       </p>
-      <button onClick={() => handleTestWorkerLaunch({ dispatch })}>
+      <button onClick={() => handleTestWorkerLaunch({ dispatch, worker })}>
         Launch Test Worker
       </button>
       <table>

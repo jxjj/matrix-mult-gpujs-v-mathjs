@@ -3,14 +3,13 @@ import * as actions from "../actions";
 import { PayloadAction, TestResults } from "../types";
 import createRandomDataSet from "./createRandomDataSet";
 
-const workerURL = new URL("./worker.js", import.meta.url);
-const worker = new Worker(workerURL, { type: "module" });
-
 interface handleTestWorkerLaunchParams {
   dispatch: Dispatch<Action | PayloadAction<TestResults>>;
+  worker: Worker;
 }
 
 export default function handleTestWorkerLaunch({
+  worker,
   dispatch,
 }: handleTestWorkerLaunchParams): void {
   dispatch({ type: actions.CLEAR_ALL_TEST_RESULTS });

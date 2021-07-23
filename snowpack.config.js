@@ -16,6 +16,9 @@ export default {
     /* ... */
   },
   buildOptions: {
-    /* ... */
+    // github doesn't seem to like `_snowpack` dir
+    // see: https://github.com/snowpackjs/snowpack/discussions/2419
+    metaUrlPath: "snowpack",
+    baseUrl: "/matrix-mult-gpujs-v-mathjs",
   },
 };

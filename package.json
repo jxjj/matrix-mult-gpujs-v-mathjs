@@ -6,10 +6,10 @@
   "type": "module",
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build",
+    "build": "snowpack build && touch build/.nojekyll",
     "test": "jest",
     "test:watch": "jest --watch",
-    "deploy": "npm run build && gh-pages -d build"
+    "deploy": "gh-pages --dotfiles --dist build"
   },
   "author": "",
   "license": "ISC",
