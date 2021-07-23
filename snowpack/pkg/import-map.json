@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "gpu.js": "./gpujs.js",
+    "marky": "./marky.js",
+    "mathjs": "./mathjs.js",
+    "react": "./react.js",
+    "react-dom": "./react-dom.js",
+    "react-redux": "./react-redux.js",
+    "redux": "./redux.js"
+  }
+}
