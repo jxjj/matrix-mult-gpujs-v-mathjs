@@ -14,7 +14,11 @@ const TableRow = ({size, mathjsTime, gpujsTime}) => {
 const App = () => {
   const testResults = useSelector(({testResults: testResults2}) => testResults2);
   const dispatch = useDispatch();
-  return /* @__PURE__ */ React.createElement("main", null, /* @__PURE__ */ React.createElement("h1", null, "GPU.js vs. Math.js"), /* @__PURE__ */ React.createElement("p", null, "Testing Matrix Multiplication using", " ", /* @__PURE__ */ React.createElement("a", {
+  return /* @__PURE__ */ React.createElement("div", {
+    className: "app"
+  }, /* @__PURE__ */ React.createElement("aside", null, /* @__PURE__ */ React.createElement("a", {
+    href: "https://github.com/jxjj/matrix-mult-gpujs-v-mathjs/tree/main"
+  }, "Source on Github")), /* @__PURE__ */ React.createElement("header", null, /* @__PURE__ */ React.createElement("h1", null, "GPU.js vs. Math.js")), /* @__PURE__ */ React.createElement("main", null, /* @__PURE__ */ React.createElement("p", null, "Testing Matrix Multiplication using", " ", /* @__PURE__ */ React.createElement("a", {
     href: "https://mathjs.org/docs/index.html"
   }, "Math.js"), " and", " ", /* @__PURE__ */ React.createElement("a", {
     href: "https://gpu.rocks/"
@@ -23,7 +27,7 @@ const App = () => {
   }, "Launch Test Worker"), /* @__PURE__ */ React.createElement("table", null, /* @__PURE__ */ React.createElement("thead", null, /* @__PURE__ */ React.createElement("tr", null, /* @__PURE__ */ React.createElement("th", null, "Data Set Size"), /* @__PURE__ */ React.createElement("th", null, "Mathjs Time (ms)"), /* @__PURE__ */ React.createElement("th", null, "GPU.js Time (ms)"))), /* @__PURE__ */ React.createElement("tbody", null, testResults.map((result) => /* @__PURE__ */ React.createElement(TableRow, {
     key: result.size,
     ...result
-  })))));
+  }))))));
 };
 const rootElement = document.getElementById("app");
 ReactDOM.render(/* @__PURE__ */ React.createElement(Provider, {
