@@ -1,6 +1,6 @@
-import { Point } from "./types";
+import { Point } from "../types";
 import getTestResultsFor from "./getTestResultsFor";
-import { START_ALL_TESTS } from "./store";
+import * as actions from "../actions";
 
 async function runAllTests(dataSet: Point[]) {
   for (let n = 50; n < dataSet.length; n += 50) {
@@ -15,13 +15,8 @@ async function runAllTests(dataSet: Point[]) {
 
 // Message Router
 onmessage = ({ data }) => {
-  if (data.type === START_ALL_TESTS) {
+  if (data.type === actions.START_ALL_TESTS) {
     console.log("Starting all tests");
     runAllTests(data.payload);
   }
 };
-
-// addEventListener("message", (e) => {
-//   console.log(e);
-//   postMessage("hiya!");
-// });

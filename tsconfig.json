@@ -10,8 +10,9 @@
     "target": "es2020",
     "outDir": "./dist",
     "esModuleInterop": true,
-    "typeRoots": ["./types", "./node_modules/@types"]
+    "typeRoots": ["./types", "./node_modules/@types"],
+    "jsx": "react"
   },
-  "include": ["src/**/*.ts", "src/main.tsx", "src/worker.js"],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["dist", "node_modules", "src/**/*.test.ts", "types"]
 }

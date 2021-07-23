@@ -1,13 +1,12 @@
 import * as marky from "marky";
-import transpose from "./ops/transpose";
-import createBasisMatrix from "./ops/createBasisMatrix";
-import gpuMultiply from "./gpujs-multiply";
+import transpose from "../matrix/transpose";
+import createBasisMatrix from "../matrix/createBasisMatrix";
+import gpuMultiply from "../matrix/gpujs-multiply";
 import { multiply } from "mathjs";
-import { TestResults } from "./store";
-import { Point } from "./types";
+import { Point, TestResults } from "../types";
 
 const testRunner = (name: string, fn: Function): Promise<number> =>
-  new Promise((resolve, reject) => {
+  new Promise((resolve) => {
     marky.mark(name);
     fn();
     const { duration } = marky.stop(name);
@@ -18,7 +17,7 @@ const testRunner = (name: string, fn: Function): Promise<number> =>
 export default async function getTestResultsFor(
   data: Point[]
 ): Promise<TestResults> {
-  return new Promise(async (resolve, reject) => {
+  return new Promise(async (resolve) => {
     const A = createBasisMatrix(data);
     const B = transpose(A);
 

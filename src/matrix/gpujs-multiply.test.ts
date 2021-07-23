@@ -1,8 +1,10 @@
 import gpuMultiply from "./gpujs-multiply";
 import { multiply } from "mathjs";
-import createBasisMatrix from "./ops/createBasisMatrix";
-import transpose from "./ops/transpose";
-import data from "./data/data";
+import createBasisMatrix from "./createBasisMatrix";
+import transpose from "./transpose";
+import createRandomDataSet from "../testWorker/createRandomDataSet";
+
+const data = createRandomDataSet(500);
 
 describe("multiplication algorithms", () => {
   it("should give the same results", () => {

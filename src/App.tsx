@@ -1,27 +1,9 @@
 import React from "react";
-import Worker from "web-worker";
-import { useDispatch, useSelector } from "react-redux";
-import dataSet from "./data/data.js";
-import {
-  RootState,
-  START_ALL_TESTS,
-  TestResults,
-  TEST_COMPLETE,
-} from "./store";
-
-function handleTestLaunch({ dispatch }) {
-  const worker = new Worker("./worker.js", { type: "module" });
-
-  worker.postMessage({
-    type: START_ALL_TESTS,
-    payload: dataSet,
-  });
-
-  worker.onmessage = (e) => {
-    const { payload } = e.data;
-    dispatch({ type: TEST_COMPLETE, payload });
-  };
-}
+import * as ReactDOM from "react-dom";
+import { useDispatch, useSelector, Provider } from "react-redux";
+import store from "./store";
+import { RootState, TestResults } from "./types";
+import handleTestWorkerLaunch from "./testWorker/handleTestWorkerLaunch";
 
 const TableRow = ({ size, mathjsTime, gpujsTime }: TestResults) => {
   return (
@@ -39,9 +21,13 @@ const App = () => {
 
   return (
     <main>
-      {/* <h1>GPU.js vs Mathjs Tests</h1>
-      <button onClick={() => runAllTests({ dispatch })}>Run Tests</button> */}
-      <button onClick={() => handleTestLaunch({ dispatch })}>
+      <h1>GPU.js vs. Math.js</h1>
+      <p>
+        Testing Matrix Multiplication using{" "}
+        <a href="https://mathjs.org/docs/index.html">Math.js</a> and{" "}
+        <a href="https://gpu.rocks/">GPU.js</a>
+      </p>
+      <button onClick={() => handleTestWorkerLaunch({ dispatch })}>
         Launch Test Worker
       </button>
       <table>
@@ -62,4 +48,10 @@ const App = () => {
   );
 };
 
-export default App;
+const rootElement = document.getElementById("app");
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  rootElement
+);

@@ -1,7 +1,4 @@
-interface Point {
-  x: number;
-  y: number;
-}
+import { Point } from "../types";
 
 const getAllXs = (points: Point[]) => points.map((p) => p.x);
 const pos = (x: number) => Math.max(x, 0);
