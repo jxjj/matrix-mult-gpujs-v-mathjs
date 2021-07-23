@@ -18,7 +18,7 @@ const App = () => {
     href: "https://mathjs.org/docs/index.html"
   }, "Math.js"), " and", " ", /* @__PURE__ */ React.createElement("a", {
     href: "https://gpu.rocks/"
-  }, "GPU.js")), /* @__PURE__ */ React.createElement("button", {
+  }, "GPU.js")), /* @__PURE__ */ React.createElement("p", null, "For n = 100, 200, ..., 1000"), /* @__PURE__ */ React.createElement("ol", null, /* @__PURE__ */ React.createElement("li", null, "Creates a matrix M of size n^2 using random data, and its transpose M'."), /* @__PURE__ */ React.createElement("li", null, "Times how long M · M' takes.")), /* @__PURE__ */ React.createElement("button", {
     onClick: () => handleTestWorkerLaunch({dispatch, worker})
   }, "Launch Test Worker"), /* @__PURE__ */ React.createElement("table", null, /* @__PURE__ */ React.createElement("thead", null, /* @__PURE__ */ React.createElement("tr", null, /* @__PURE__ */ React.createElement("th", null, "Data Set Size"), /* @__PURE__ */ React.createElement("th", null, "Mathjs Time (ms)"), /* @__PURE__ */ React.createElement("th", null, "GPU.js Time (ms)"))), /* @__PURE__ */ React.createElement("tbody", null, testResults.map((result) => /* @__PURE__ */ React.createElement(TableRow, {
     key: result.size,

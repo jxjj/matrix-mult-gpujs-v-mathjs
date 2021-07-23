@@ -1,7 +1,7 @@
 import getTestResultsFor from "./testWorker/getTestResultsFor.js";
 import * as actions from "./actions.js";
 async function runAllTests(dataSet) {
-  for (let n = 50; n <= dataSet.length; n += 50) {
+  for (let n = 100; n <= dataSet.length; n += 100) {
     const payload = await getTestResultsFor(dataSet.slice(0, n));
     postMessage({
       type: "WORKER_RESULTS_COMPLETE",
