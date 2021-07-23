@@ -3,7 +3,7 @@ import getTestResultsFor from "./testWorker/getTestResultsFor";
 import * as actions from "./actions";
 
 async function runAllTests(dataSet: Point[]) {
-  for (let n = 50; n <= dataSet.length; n += 50) {
+  for (let n = 100; n <= dataSet.length; n += 100) {
     // run test on the first n elements
     const payload = await getTestResultsFor(dataSet.slice(0, n));
     postMessage({

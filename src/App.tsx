@@ -30,6 +30,14 @@ const App = () => {
         <a href="https://mathjs.org/docs/index.html">Math.js</a> and{" "}
         <a href="https://gpu.rocks/">GPU.js</a>
       </p>
+      <p>For n = 100, 200, ..., 1000</p>
+      <ol>
+        <li>
+          Creates a matrix M of size n^2 using random data, and its transpose
+          M'.
+        </li>
+        <li>Times how long M · M' takes.</li>
+      </ol>
       <button onClick={() => handleTestWorkerLaunch({ dispatch, worker })}>
         Launch Test Worker
       </button>
