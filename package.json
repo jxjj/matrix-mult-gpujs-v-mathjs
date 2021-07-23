@@ -9,7 +9,7 @@
     "build": "snowpack build && touch build/.nojekyll",
     "test": "jest",
     "test:watch": "jest --watch",
-    "deploy": "gh-pages --dotfiles --dist build"
+    "deploy": "npm run build && gh-pages --dotfiles --dist build"
   },
   "author": "",
   "license": "ISC",
