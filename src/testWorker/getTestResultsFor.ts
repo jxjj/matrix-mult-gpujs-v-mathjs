@@ -18,6 +18,8 @@ export default async function getTestResultsFor(
   data: Point[]
 ): Promise<TestResults> {
   return new Promise(async (resolve) => {
+    console.log(`getTestResultsFor ${data.length} points`);
+
     const A = createBasisMatrix(data);
     const B = transpose(A);
 
