@@ -1,4 +1,4 @@
-import {GPU} from "../snowpack/pkg/gpujs.js";
+import {GPU} from "../_snowpack/pkg/gpujs.js";
 const gpu = new GPU();
 function gpuMultiplyMatrix(a, b) {
   const aRows = a.length;
