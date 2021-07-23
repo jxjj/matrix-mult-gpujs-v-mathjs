@@ -1,11 +1,7 @@
-import * as __SNOWPACK_ENV__ from '../snowpack/env.js';
-import.meta.env = __SNOWPACK_ENV__;
-
 import * as actions from "../actions.js";
 import createRandomDataSet from "./createRandomDataSet.js";
-const workerURL = new URL("/testWorker/worker.js", import.meta.url);
-const worker = new Worker(workerURL, {type: "module"});
 export default function handleTestWorkerLaunch({
+  worker,
   dispatch
 }) {
   dispatch({type: actions.CLEAR_ALL_TEST_RESULTS});
