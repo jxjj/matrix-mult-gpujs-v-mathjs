@@ -6,8 +6,10 @@
   "type": "module",
   "scripts": {
     "start": "snowpack dev",
+    "build": "snowpack build",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "deploy": "gh-pages -d build"
   },
   "author": "",
   "license": "ISC",
