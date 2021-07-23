@@ -1,8 +1,8 @@
-import * as marky from "../_snowpack/pkg/marky.js";
+import * as marky from "../snowpack/pkg/marky.js";
 import transpose from "../matrix/transpose.js";
 import createBasisMatrix from "../matrix/createBasisMatrix.js";
 import gpuMultiply from "../matrix/gpujs-multiply.js";
-import {multiply} from "../_snowpack/pkg/mathjs.js";
+import {multiply} from "../snowpack/pkg/mathjs.js";
 const testRunner = (name, fn) => new Promise((resolve) => {
   marky.mark(name);
   fn();

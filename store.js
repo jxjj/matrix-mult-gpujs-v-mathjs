@@ -1,4 +1,4 @@
-import {createStore} from "./_snowpack/pkg/redux.js";
+import {createStore} from "./snowpack/pkg/redux.js";
 import * as actions from "./actions.js";
 const initialState = {
   testResults: []

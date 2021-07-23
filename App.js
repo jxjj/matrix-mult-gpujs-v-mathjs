@@ -1,6 +1,6 @@
-import React from "./_snowpack/pkg/react.js";
-import * as ReactDOM from "./_snowpack/pkg/react-dom.js";
-import {useDispatch, useSelector, Provider} from "./_snowpack/pkg/react-redux.js";
+import React from "./snowpack/pkg/react.js";
+import * as ReactDOM from "./snowpack/pkg/react-dom.js";
+import {useDispatch, useSelector, Provider} from "./snowpack/pkg/react-redux.js";
 import store from "./store.js";
 import handleTestWorkerLaunch from "./testWorker/handleTestWorkerLaunch.js";
 const TableRow = ({size, mathjsTime, gpujsTime}) => {
